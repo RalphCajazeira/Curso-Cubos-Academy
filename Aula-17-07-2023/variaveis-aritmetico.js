@@ -12,5 +12,5 @@ resultado = x * y;
 console.log(`A multiplicação de x * y (${x} * ${y}) é = ${resultado}`)
 console.log("-----------------------")
 resultado = x / y;
-console.log(`A divisã de x / y (${x} / ${y}) é = ${resultado}`)
+console.log(`A divisão de x / y (${x} / ${y}) é = ${resultado}`)
 console.log("-----------------------")
