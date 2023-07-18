@@ -11,4 +11,4 @@ velocidadeMedia = distPecorridaEmMetros / tempoSegundos * 3.6;
 
 // Imprimir na Tela
 
-console.log(`Sua velocidade media é de ${velocidadeMedia} km/h`);
+console.log(`Sua velocidade media é de ${velocidadeMedia} km/h.`);
