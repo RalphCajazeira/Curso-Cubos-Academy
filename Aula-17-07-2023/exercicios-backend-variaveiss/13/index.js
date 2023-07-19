@@ -2,7 +2,7 @@
 
 const raioBase = 3
 const alturaCilindro = 1
-const PI = "PI"; //Só quis colocar aqui para jutar na Impressão da tela
+const PI = "PI"; //Só quis colocar aqui para juntar na Impressão da tela
 
 let areaTotalCilindro;
 
