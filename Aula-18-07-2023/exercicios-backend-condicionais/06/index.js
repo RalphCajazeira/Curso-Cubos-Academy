@@ -1,4 +1,4 @@
-const alturaEmCm = 185;
+const alturaEmCm = 184;
 
 //seu código aqui
 const alturaMinima = 180;
