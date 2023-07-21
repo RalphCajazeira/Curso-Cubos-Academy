@@ -1,0 +1,20 @@
+
+
+const palavra = 'Amanda';
+
+const buscarLetra = 'B';
+let contarLetrasAchadas = 0;
+
+
+
+for (let letra of palavra) {
+    if (letra.toLowerCase() === buscarLetra.toLowerCase()) {
+        contarLetrasAchadas++
+    }
+}
+
+if (contarLetrasAchadas > 0) {
+    console.log(`Foram encontradas ${contarLetrasAchadas} letra ${buscarLetra}`)
+} else {
+    console.log(`Não foi encontrada nenhuma letra ${buscarLetra}`)
+}
