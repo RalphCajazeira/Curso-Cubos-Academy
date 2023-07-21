@@ -1,4 +1,4 @@
-const diaDaSemana = 7;
+const diaDaSemana = 1;
 
 const segunda = "Segunda Feira"
 const terca = "Terça Feira"
@@ -22,10 +22,11 @@ if (diaDaSemana === 1) {
     console.log(sabado)
 } else if (diaDaSemana === 7) {
     console.log(domingo)
-} //else {
-//     console.log("A entrada deve ser um numero de 1 a 7")
-// }
+} else {
+    console.log("O dia da semana informado não é válido.")
+}
 
-//Deixei comentato para fazer o commit eu antes de ler a segunda questão ja tinha
-//colocado essa verificação, estou criando o costume de tentar prever algumas coisas
-//e tentar não deixar aberturas para erros ou respostas inesperadas.
+// Comentario referente ao commit anterior
+    //Deixei comentato para fazer o commit, antes de ler a segunda questão eu ja tinha
+    //colocado essa verificação, estou criando o costume de tentar prever algumas coisas
+    //e tentar não deixar aberturas para erros ou respostas inesperadas.
