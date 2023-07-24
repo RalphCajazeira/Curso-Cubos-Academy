@@ -30,5 +30,5 @@ for (const produto of cartao.produtosConsumidos) {
     // valorTotalGasto += produto.precoUnitario * produto.quantidadeComprada;
     valorTotalGasto += produto.precoUnitario * produto.quantidadeComprada;
 }
-
-console.log((valorTotalGasto / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }))
+console.log(`O cliente ${cartao.nomeDoCliente} terá que pagar: ${(valorTotalGasto / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`)
+// console.log((valorTotalGasto / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }))
