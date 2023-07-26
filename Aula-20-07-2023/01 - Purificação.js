@@ -7,11 +7,11 @@ let nomeCorreto = "";
 
 for (let i of stringCorrompida) {
     if (i === " ") {
-        nomeCorreto += " "
+        nomeCorreto += " ";
     } else if ((i >= "a" || i >= "A") && (i <= "z" || i <= "Z")) {
         nomeCorreto += i
     }
 
 }
 
-console.log(nomeCorreto.toUp)
+console.log(nomeCorreto)
