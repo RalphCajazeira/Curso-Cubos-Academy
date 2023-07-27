@@ -5,7 +5,7 @@ const pessoaObj = {
     profissao: "estudante"
 }
 function apresentar(pessoa) {
-    console.log(`Olá! Mue nome é ${pessoa.nome}, sou um jovem de ${pessoa.idade} anos,
+    console.log(`Olá! Meu nome é ${pessoa.nome}, sou um jovem de ${pessoa.idade} anos,
     ${pessoa.altura}m e sou ${pessoa.profissao}`);
 }
 
