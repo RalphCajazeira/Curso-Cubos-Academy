@@ -27,5 +27,20 @@ const prova = {
 };
 
 function corrigirProva(prova) {
+    let somaAcerto = 0
+    for (let questao of prova.questoes) {
+        if (questao.resposta === questao.correta) {
+            somaAcerto++;
+        }
+
+    }
+    const somaNotas = (prova.valor / prova.questoes.length) * somaAcerto;
+    console.log(`O aluno(a) ${prova.aluno} acertou ${somaAcerto} questões e obteve nota ${somaNotas}`)
+
 
 }
+
+
+
+
+corrigirProva(prova)
