@@ -20,7 +20,7 @@ const produtosConsumidos = [
 const cartao = {
     nomeDoCliente: "Ralph",
     idadeDoCliente: 33,
-    produtosConsumidos
+    produtosConsumidos //Shorthand = produtosConsumidos: produtosConsumidos
 
 }
 
