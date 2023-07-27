@@ -40,8 +40,9 @@ const carrinho = {
         }
     },
     imprimirDetalhes: function () {
-        let precoTotal = this.calcularTotalAPagar(); // Variavel para guardar valor total do carrinho
-        let quantItem = this.calcularTotalDeItens(); // Variavel para guardar quantidade de itens no carrinho
+        const precoTotal = this.calcularTotalAPagar(); // Variavel para guardar valor total do carrinho
+        const quantItem = this.calcularTotalDeItens(); // Variavel para guardar quantidade de itens no carrinho
+        const desconto = this.calcularDesconto()
 
         console.log(`Cliente: ${this.nomeDoCliente}`)
         console.log()
@@ -52,7 +53,9 @@ const carrinho = {
         }
         console.log()
         console.log(`Total de itens: ${quantItem}`)
-        console.log(`Total a pagar:  ${(precoTotal / 100).toFixed(2)}`)
+        console.log(`Total a pagar:  R$ ${(precoTotal / 100).toFixed(2)}`)
+        console.log(`Desconto: R$ ${desconto.toFixed(2)}`)
+        console.log(`Total a pagar com desconto:  R$ ${((precoTotal / 100) - desconto).toFixed(2)}`)
     },
     calcularTotalDeItens: function () {
         let quantItem = 0; // Variavel para guardar quantidade de itens no carrinho
@@ -118,7 +121,7 @@ const novoTenis = {
 
 carrinho.addProduto(novoTenis);
 carrinho.imprimirResumo();
-// carrinho.imprimirDetalhes();
+carrinho.imprimirDetalhes();
 
 // console.log(carrinho.produtos)
 
