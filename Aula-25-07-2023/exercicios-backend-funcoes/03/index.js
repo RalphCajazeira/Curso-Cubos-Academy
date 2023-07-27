@@ -16,36 +16,90 @@ const carrinho = {
     ],
     imprimirResumo: function () {
 
-        let precoTotal = 0; // Variavel para guardar valor total do carrinho
-        let quantItem = 0; // Variavel para guardar quantidade de itens no carrinho
-
-        for (let i of this.produtos) {
-            precoTotal += i.qtd * i.precoUnit;
-            quantItem += i.qtd
-        }
+        const precoTotal = this.calcularTotalAPagar(); // Variavel para guardar valor total do carrinho
+        const quantItem = this.calcularTotalDeItens(); // Variavel para guardar quantidade de itens no carrinho
+        const desconto = this.calcularDesconto()
 
         console.log(`Cliente: ${this.nomeDoCliente}`)
         console.log(`Total de itens: ${quantItem} itens`)
-        console.log(`Total a pagar: R$ ${precoTotal.toFixed(2) / 100}`)
-    }
-}
-
-function addProdutoAoCarrinho(carrinho, produto) {
-    let itemNoCarrinho = false // Validação de item no carrinho
-    // Verificar se intem estah no carrinho se tiver soma as quantidades.
-    for (let i of carrinho.produtos) {
-        if (i.id === produto.id) {
-            i.qtd += produto.qtd
-            console.log('Colocando como true variavel de item existente')
-            itemNoCarrinho = true
+        console.log(`Total a pagar: R$ ${((precoTotal / 100) - desconto).toFixed(2)}`)
+    },
+    addProduto: function (produto) {
+        let itemNoCarrinho = false // Validação de item no carrinho
+        // Verificar se intem estah no carrinho se tiver soma as quantidades.
+        for (let i of this.produtos) {
+            if (i.id === produto.id) {
+                i.qtd += produto.qtd
+                console.log('Colocando como true variavel de item existente')
+                itemNoCarrinho = true
+            }
         }
-    }
-    // Se o item não tiver no carrinho adiciona o item no carrinho na lista produtos.
-    if (!itemNoCarrinho) {
-        carrinho.produtos.push(produto)
+        // Se o item não tiver no carrinho adiciona o item no carrinho na lista produtos.
+        if (!itemNoCarrinho) {
+            this.produtos.push(produto)
+        }
+    },
+    imprimirDetalhes: function () {
+        let precoTotal = this.calcularTotalAPagar(); // Variavel para guardar valor total do carrinho
+        let quantItem = this.calcularTotalDeItens(); // Variavel para guardar quantidade de itens no carrinho
+
+        console.log(`Cliente: ${this.nomeDoCliente}`)
+        console.log()
+        let itemNumero = 0
+        for (let i of this.produtos) {
+            itemNumero += 1;
+            console.log(`Item ${itemNumero} - ${i.nome} - ${i.qtd} und - R$ ${(i.qtd * i.precoUnit / 100).toFixed(2)}`)
+        }
+        console.log()
+        console.log(`Total de itens: ${quantItem}`)
+        console.log(`Total a pagar:  ${(precoTotal / 100).toFixed(2)}`)
+    },
+    calcularTotalDeItens: function () {
+        let quantItem = 0; // Variavel para guardar quantidade de itens no carrinho
+        for (let i of this.produtos) {
+            quantItem += i.qtd
+        }
+        return quantItem
+    },
+    calcularTotalAPagar: function () {
+        let precoTotal = 0; // Variavel para guardar valor total do carrinho
+        for (let i of this.produtos) {
+            precoTotal += i.qtd * i.precoUnit;
+        }
+        return precoTotal
+    },
+    calcularDesconto: function () {
+        let quantItem = this.calcularTotalDeItens()
+        let precoTotal = this.calcularTotalAPagar()
+
+        let descontoMelhor = 0
+        let menorPrecoDesc = 0
+        let menorPrecoQtd = (this.produtos[0].precoUnit) / 100
+
+        if (precoTotal >= 10000) { // Desconto se compra maior que 100
+            menorPrecoDesc = precoTotal * 10 / 100 / 100
+        }
+
+        if (quantItem > 4) { //Desconto por acima de 4 itens
+            for (let i of this.produtos) {
+                if (i.precoUnit < menorPrecoQtd) {
+                    menorPrecoQtd = i.precoUnit
+                }
+            }
+        } else {
+            menorPrecoQtd = 0
+        }
+
+        if (menorPrecoDesc + menorPrecoQtd > 0) {
+            if (menorPrecoDesc > menorPrecoQtd) {
+                descontoMelhor = menorPrecoDesc
+            } else {
+                descontoMelhor = menorPrecoQtd
+            }
+        }
+        return descontoMelhor
     }
 }
-
 const novaBermuda = {
     id: 2,
     nome: "Bermuda",
@@ -53,7 +107,7 @@ const novaBermuda = {
     precoUnit: 5000
 }
 
-addProdutoAoCarrinho(carrinho, novaBermuda);
+carrinho.addProduto(novaBermuda);
 
 const novoTenis = {
     id: 3,
@@ -62,5 +116,12 @@ const novoTenis = {
     precoUnit: 10000
 }
 
-addProdutoAoCarrinho(carrinho, novoTenis);
+carrinho.addProduto(novoTenis);
 carrinho.imprimirResumo();
+// carrinho.imprimirDetalhes();
+
+// console.log(carrinho.produtos)
+
+// carrinho.calcularTotalDeItens()
+// carrinho.calcularTotalAPagar()
+carrinho.calcularDesconto()
