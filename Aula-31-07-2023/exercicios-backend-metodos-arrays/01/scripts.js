@@ -1,16 +1,23 @@
 const frutas = ['Banana', 'Maçã', 'Abacaxi', 'Pêra', 'Uva'];
 
 
-frutas.reverse()
-const textoOrdenado = frutas.join(', ')
+function inverterEConverterTexto(frutas) {
+    frutas.reverse()
+    const textoOrdenado = frutas.join(', ')
 
-console.log(textoOrdenado)
+    console.log(textoOrdenado)
+}
 
-frutas.reverse()
-frutas.splice(0, 1)
-frutas.splice(frutas.length - 1, 1, 'Melão')
+inverterEConverterTexto(frutas)
+
+function inverterSplice(frutas) {
+
+    frutas.reverse()
+    frutas.splice(0, 1)
+    frutas.splice(frutas.length - 1, 1, 'Melão')
 
 
-console.log(frutas)
+    console.log(frutas)
+}
 
-
+inverterSplice(frutas)
