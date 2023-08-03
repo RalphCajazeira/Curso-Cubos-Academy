@@ -7,7 +7,7 @@ const arquivos = [
 ];
 
 function detectarVirus(arrayArquivos) {
-    const arquivosComVirus = []
+    // const arquivosComVirus = []
     const resultado = arrayArquivos.some((arquivo) => {
         const arraynome = arquivo.split('.')
         return arraynome[1] === 'bat'
