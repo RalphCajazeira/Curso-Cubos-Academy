@@ -1,0 +1,7 @@
+const lista = [1, 2, 3]
+
+const soma = lista.reduce((a, b) => {
+    return a + b
+})
+
+console.log(soma);
