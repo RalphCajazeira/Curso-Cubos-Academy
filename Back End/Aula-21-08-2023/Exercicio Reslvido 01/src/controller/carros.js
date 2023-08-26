@@ -1,4 +1,4 @@
-const carros = require('../bancodedados')
+const carros = require('../data/bancodedados')
 
 
 // Modelo Functions Normal
