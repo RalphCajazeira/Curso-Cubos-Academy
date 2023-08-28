@@ -1,7 +1,7 @@
 {
-  "name": "01",
+  "name": "exerciocio-resolvido",
   "version": "1.0.0",
-  "description": "![](https://i.imgur.com/xG74tOh.png)",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/index.js"

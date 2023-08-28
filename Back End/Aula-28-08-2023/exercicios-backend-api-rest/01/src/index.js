@@ -1,9 +1,13 @@
-const express = require('express')
-const { listarAlunos } = require('./controller/alunos')
+const express = require('express');
+const rotas = require('./rotas')
+const autenticacao = require('./intermediario')
 
-const app = express()
+const app = express();
 
-app.get('/alunos', listarAlunos)
+//Intermediario para aceitar somente formato json
+app.use(express.json())
+app.use(autenticacao);
 
+app.use(rotas)
 
 app.listen(3000)
